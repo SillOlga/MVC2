@@ -1,24 +1,25 @@
 <?php
 $books = array();
+        // Create a class, place it in a variable, create fields
+         $mysqli = new mysqli('localhost', 'root', '', 'shop'); 
 
-         $mysqli = new mysqli('localhost', 'root', '', 'shop'); // Create a class, put it in a variable, create fields
 
-
-
+        // Handling connection error
         if(mysqli_connect_errno()) {
             print_f('Соединение не установлено');
             exit();
-        } // Handling connection error
+        } 
 
+        // Set the encoding setting
+        $mysqli->set_charset('utf8'); 
 
-        $mysqli->set_charset('utf8'); // Indicates encoding setting
+        // Making a query from the Books table
+        $query = "Select * From Books"; 
 
-        
-        $query = "Select * From Books"; // Make a query from a table Books
-
-
-        $result = $mysqli->query($query); // Request in progress  
-        $books = $result->fetch_all(MYSQLI_ASSOC); // Download all the books and get the result
+        // Execute a query
+        $result = $mysqli->query($query);
+        // Uploading the query result to an array
+        $books = $result->fetch_all(MYSQLI_ASSOC); 
 
 
 
