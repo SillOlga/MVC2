@@ -22,7 +22,7 @@
         $response = Controller::BookOne($title); 
 
     }
-    // Get an error response
+    // get an error response
     else {
         $response = Controller::error404(); 
 
