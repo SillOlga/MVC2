@@ -1,0 +1,87 @@
+// Диаграмма последовательности
+@startuml
+
+"User" --> "Home page"
+
+
+
+if "Go to the\n next page"
+
+ -->[cross\n over] " Books "
+
+ -->[cross\n over] "Book (selecton from the list of the books)"
+
+ -->[comes\n back]"Books"
+
+ -right-> [comes\n back]"Home page"
+
+else
+
+ ->[inf] "main\data"
+
+endif
+
+' задаем параметры для всех классов по умолчанию
+skinparam class {
+
+ ' задаем синий цвет для связей классов по умолчанию
+ ArrowColor      Blue 
+ ' задаем красный цвет для контуров классов по умолчанию
+ BorderColor     Red 
+}
+
+@enduml
+
+
+// Диаграмма классов
+@startuml
+
+class Controller {
+    -public static function
+    #public static function
+    *public static function
+    +public static function
+    #public static function
+    +public function
+    ~StartSite()
+    +BookList()
+    *getBookList()
+    *getBookList() 
+    -getBook()
+    -bookOne()
+    #bookOne()
+    +error404()
+}
+
+class Model {
+    -public static function
+    #public static function
+    ~getBookList()
+    +getBook()
+}
+
+Controller::getBookList --> Model::getBookList
+Model::getbook --> Controller::getBook
+
+' задаем параметры для всех классов по умолчанию
+skinparam class {
+ ' задаем цвет для фона классов по умолчанию
+ BackgroundColor Wheat|CornflowerBlue
+ ' задаем синий цвет для связей классов по умолчанию
+ ArrowColor      Blue 
+ ' задаем оранжевый цвет для контуров классов по умолчанию
+ BorderColor     Orange
+ 
+}
+@enduml 
+
+
+
+
+
+
+
+
+
+
+
